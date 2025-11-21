@@ -6,12 +6,13 @@
 # Inherit from the custom common configuration.
 $(call inherit-product, device/nothing/Aerodactyl/device-common.mk)
 
-# Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_nothing_pacmanpro)
-
 # Overlays
 PRODUCT_PACKAGES += \
     NothingWifiResPacmanPro
+
+# Properties
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/skus/Pro/,$(TARGET_COPY_OUT_ODM)/etc)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/nothing/PacmanPro/PacmanPro-vendor.mk)
