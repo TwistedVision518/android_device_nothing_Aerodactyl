@@ -5,7 +5,12 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
@@ -106,10 +111,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
-# Doze
-PRODUCT_PACKAGES += \
-    NothingDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     com.android.hardware.drm.clearkey
@@ -146,12 +147,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
-$(call soong_config_set,lineage_health,charging_control_charging_path,/proc/charger/usb_charger_en)
-
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
 # Init
+PRODUCT_COPY_FILES += \
+    device/nothing/Aerodactyl-kernel/Image.lz4:kernel
+
 PRODUCT_PACKAGES += \
     fstab.enableswap \
     fstab.mt6886 \
@@ -230,11 +229,7 @@ PRODUCT_PACKAGES += \
     NcmTetheringOverlay
 
 PRODUCT_PACKAGES += \
-    LineageApertureResTarget \
-    LineageSDKResTarget \
-    LineageSettingsProviderResTarget \
-    LineageSettingsResTarget \
-    LineageSystemUIResTarget
+    LineageApertureResTarget
 
 # Page size
 PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
