@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- Device Tree -->
+    <project name="TwistedVision518/android_device_nothing_Aerodactyl" path="device/nothing/Aerodactyl" remote="github" revision="main" />
+
+    <!-- Vendor Tree (Assuming standard Lineage or extracted) -->
+    <!-- Note: If you used a specific vendor repo, add it here. Using Lineage default for now if unrelated -->
+    
+    <!-- Patched wpa_supplicant -->
+    <remove-project name="platform/external/wpa_supplicant_8" />
+    <project name="TwistedVision518/android_external_wpa_supplicant_8" path="external/wpa_supplicant_8" remote="github" revision="lineage-23.0" />
+
+    <!-- Patched Audio HALs -->
+    <remove-project name="platform/hardware/interfaces" />
+    <project name="TwistedVision518/android_hardware_interfaces" path="hardware/interfaces" remote="github" revision="lineage-23.0" />
+
+    <remove-project name="platform/hardware/qcom-caf/common" />
+    <project name="TwistedVision518/android_hardware_qcom-caf_common" path="hardware/qcom-caf/common" remote="github" revision="lineage-23.0" />
+
+</manifest>
