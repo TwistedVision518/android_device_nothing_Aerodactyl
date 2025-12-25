@@ -29,3 +29,13 @@ remote_provisioning.strongbox.rkp_only?=1
 
 # Voice assitant
 ro.opa.eligible_device=true
+
+# ScrollOptimizer
+# Enable or disable ScrollOptimizer globally
+persist.sys.perf.scroll_opt=true
+# Heavy app handling mode (2 - Treat all apps as heavy)
+persist.sys.perf.scroll_opt.heavy_app=2
+
+# Performance Tweaks
+ro.config.avoid_gfx_accel=0
+debug.sf.avg_latch_unsignaled_duration=0

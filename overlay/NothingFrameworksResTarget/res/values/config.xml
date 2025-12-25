@@ -508,4 +508,6 @@
     <!-- Default value for fp screen off unlock toggle, it only works for the devices that support
          fp screen off unlock-->
     <bool name="config_screen_off_udfps_default_on">true</bool>
+    <!-- Whether the audio panel should be on the left side of the screen -->
+    <bool name="config_audioPanelOnLeftSide">true</bool>
 </resources>

@@ -7,6 +7,27 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# AxionOS Properties
+AXION_CAMERA_REAR_INFO := 50,50
+AXION_CAMERA_FRONT_INFO := 32
+AXION_PROCESSOR := Dimensity_7200_Pro
+
+# Firmware Configuration
+BYPASS_CHARGE_SUPPORTED := false
+PERF_GOV_SUPPORTED := false
+PERF_DEFAULT_GOV := schedutil
+PERF_ANIM_OVERRIDE := false
+# GPU_FREQS_PATH and GPU_MIN_FREQ_PATH skipped (unknown path)
+HBM_SUPPORTED := false
+TORCH_STR_SUPPORTED := false
+TARGET_NEEDS_DOZE_FIX := false
+TARGET_USES_USLMK := false
+TARGET_IS_LOW_RAM := false
+
+# Axion GApps
+WITH_GMS := true
+AXION_GMS_VARIANT := core
+
 # A/B
 ifeq ($(WITH_GMS),true)
 PRODUCT_SYSTEM_PARTITIONS_FILE_SYSTEM_TYPE ?= erofs
